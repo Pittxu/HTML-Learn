@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type=text/css>
+        .slogen{
+	height:54px;
+	padding:20px 0;
+	background-color:#F5F5F5;
+	position:relative;
+}
+.item{
+	/* width:302px; */
+	position:absolute;
+	top:20px;
+	left:50%;
+}
+.slogen1{
+	margin-left:-608px;
+}
+.slogen2{
+	margin-left:-304px;
+}
+.slogen3{
+	margin-left:2px;
+}
+.slogen4{
+	margin-left:304px;
+}
+        </style>
+        <title>京东</title>
+		<link rel="stylesheet" href="base.css">
+		<link rel="shortcut icon" href="favicon.ico">
+    </head>
+    <body>
+    
+   
+    <!-- 页面底部开始 -->
+    <div class="jd-footer">
+    	<div class="service">
+    		<div class="slogen">
+    			<span class="item slogen1">
+    				<img src="slogen1.png" alt="">
+    			</span>
+    			<span class="item slogen2">
+    				<img src="slogen2.png" alt="">
+    			</span>
+    			<span class="item slogen3">
+    				<img src="slogen3.png" alt="">
+    			</span>
+    			<span class="item slogen4">
+    				<img src="slogen4.png" alt="">
+    			</span>
+    		</div>
+    	</div>
+    </div>
+    </body>
+</html>
