@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+		#mask{
+			width: 100%;
+			height: 100%;
+			background:rgba(0,0,0,.5);
+			position:fixed;
+			top:0;
+			left:0;
+			z-index: 999;
+			display:none;
+		}
+		#box{
+			width: 400px;
+			height: 250px;
+			background-color:#fff;
+			position:fixed;
+			top:50%;
+			left:50%;
+			margin:-125px 0 0 -200px;
+			z-index:1000;
+			display:none;
+		}
+		#box span{
+			position:absolute;
+			top:10px;
+			right:10px;
+			width: 15px;
+			height: 15px;
+			font-size:25px;
+			cursor:pointer;
+		}
+        </style>
+            <script type="text/javascript">
+            window.onload=function(){
+            	// 事件源:登录
+            	var login=document.getElementById("login");
+            	var mask=document.getElementById("mask");
+            	var box=document.getElementById("box");
+            	var close_all=document.getElementById("close_all")
+            	login.onclick=function(){
+            		// 当我们点击登录,会弹出灰色的大盒子和白色的小盒子
+            		mask.style.display="block";
+            		box.style.display="block";
+            	}
+            	close_all.onclick=function(){
+            		mask.style.display='none';
+            		box.style.display="none";
+            	}
+            }
+    		</script>
+    </head>
+    <body>
+    	<div id="mask"></div>
+    	<div id="box">
+    		<span id="close_all">x</span>
+    	</div>
+		<a href="javascript:;" id="login">你好,请登录</a>
+    </body>
+</html>
