@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color:pink;
+			margin:20px;
+			display:none;
+		}
+        </style>
+        <script>
+        function fn(obj){//形参 目的是为了接受实参
+        	var target=document.getElementById(obj);
+        	target.style.display="block";
+        }
+        </script>
+    </head>
+    <body>
+
+    <button onclick="fn('demo1');">第一个按钮</button>
+    <button onclick="fn('demo2');">第一个按钮</button>
+    <button onclick="fn('demo3');">第一个按钮</button>
+    <button onclick="fn('demo4');">第一个按钮</button>
+	<div id="demo1"></div>
+	<div id="demo2"></div>
+	<div id="demo3"></div>
+	<div id="demo4"></div>
+
+    </body>
+</html>
