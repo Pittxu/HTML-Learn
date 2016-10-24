@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script>
+        window.onload=function(){
+        	var txt=document.getElementById("txt");
+        	var sel=document.getElementById("select");
+        	txt.focus();
+        	sel.onmouseover=function(){
+        		this.select();
+        	}
+        }
+        </script>
+    </head>
+    <body>
+    自动获得焦点:
+    <input type="text" id="txt">
+
+    鼠标经过选择表单:
+    <input type="text" id="select">
+    </body>
+</html>
