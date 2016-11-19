@@ -1,0 +1,121 @@
+
+		JavaScript的函数其实都是某个变量,既然变量可以指向函数,函数的参数能接收变量,那么一个函数就可以接收另一个函数作为参数,这种函数就称为高阶函数
+		
+		map遍历高阶方法
+		map()方法定义在JavaScript的Array中,我们调用Array的map()方法,传入我们自己的函数,就得到了一个新的Array作为结果.
+		
+	例如:function pow(x){
+		return x*x;
+	}
+	
+	var arr=[1,2,3,4,5,6,7];
+	arr.map(pow);//[1,4,9,16,25,36,49,64,81];
+	
+	
+	map()作为高阶函数,事实上它把运算规则抽象了,因此,我们不但可以计算简单的f(x)=x2,还可以计算任意复杂的函数,比如,把Array的所有数字转换为字符串:
+		var arr=[1,2,3,4,5,6,7,8];
+		arr.map(stirng);//['1','2','3','4','5','6','7','8']
+	
+	reduce的用法,Array的reduce()把一个函数作用在这个Array的[x1,x2,x3,...]上,这个函数必须接受两个参数,reduce()把结果继续和序列的下一个元素做积累计算,其效果就是:
+		[x1,x2,x3,x4].reduce(f)=f(f(f(x1,x2),x3),x4);
+		
+		比方说对一个Array求和,就可以用reduce实现;
+		
+		var arr=[1,3,5,7,9];
+		arr.reduce(function(x,y){
+			return x+y;
+		});
+		
+	把[1,3,5,7,9]变换成整数13579,
+	var arr=[1,3,5,7,9];
+	arr.reduce(function(x,y){}
+		return x*10+y;
+		})
+	 
+	把13579先变为[1,3,5,7,9],再利用reduce()就可以写出一个把字符串转变为Number的函数.
+	
+	filter
+	filter也是一个常用的操作,它用于把Array的某些元素过滤掉,然后返回剩下的元素.filter()把传入的函数依次作用于每个元素,然后根据返回值是true还是false决定保留还是丢弃该元素.
+	
+	例如:在一个Array中,删除偶数,只保留奇数,可以这么写:
+	var arr=[1,2,4,5,6,8,9];
+	var r=arr.filter(function(x){
+		return x%2!==0;
+	});
+	
+	r;//[1,5,9];
+	
+	把一个Array中的空字符串删掉,可以这么写:
+	var arr=['A','','B',null,undefined,'C','  '];
+	var r=arr.filter(fucntion(s)){
+		return s&&s.trim();
+	});
+	
+	r;//['A','B','C']
+	可见用filter()这个高阶函数,关键在于正确实现一个'筛选'函数.
+	
+	sort()
+	JavaScript的Array的sort()方法就是用于排序的,但是结果可能让你大吃一惊:
+	
+	Array的sort()方法默认把所有元素转换为String,再根据ASCII再排序.
+	
+	幸运的是,sort()方法也是一个高阶函数,它还可以接收一个比较函数来实现自定义的排序.
+	
+	Array的sort()方法默认把所有元素转换为string在排序.
+	
+	要按照数字大小排序,我们可以这么写:
+	
+		var arr=[10,20,1,2];
+		arr.sort(function(x,y){
+			if(x<y){
+				return -1;
+			}
+			if(x>y){
+				rerurn 1;
+			}
+			return 0;
+		})
+	默认情况下,对字符串排序,是按照ASCII的大小来比较的,现在,我们提出排序应该忽略大小写的比较算法就可以了:
+		var arr=['Google','apple','Microsoft'];
+		arr.sort(function(s1,s2){
+			x1=s1.toUpperCase();
+			x2=s2.toUpperCase();
+			if(x1<x2){
+				return -1;
+			}
+		})
+		
+		
+	语法
+
+	arr.sort([compareFunction])
+
+	sort() 方法对数组的元素做原地的排序，并返回这个数组。 sort 可能不是稳定的。默认按照字符串的Unicode码位点（code point）排序。
+
+	如果没有指明 compareFunction ，那么元素会被转换为字符串并按照万国码位点顺序排序。例如 "Cherry" 会被排列到 "banana" 之前。当对数字进行排序的时候， 9 会出现在 80 之前，因为他们会先被转换为字符串，而 "80" 比 "9" 要靠前。
+
+	如果指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。记 a 和 b 是两个将要被比较的元素：
+
+	如果 compareFunction(a, b) 小于 0 ，那么 a 会被排列到 b 之前；
+
+	如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变。备注： ECMAScript 标准并不保证这一行为，而且也不是所有浏览器都会遵守（例如 Mozilla 在 2003 年之前的版本）；
+
+	如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。
+	compareFunction(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
+	所以，比较函数格式如下：
+
+	function compare(a, b) {
+  if (a is less than b by some ordering criterion) {
+    return -1;
+  }
+  if (a is greater than b by the ordering criterion) {
+    return 1;
+  }
+  // a must be equal to b
+  return 0;
+}
+	希望比较数字而非字符串，比较函数可以简单的以 a 减 b，如下的函数将会将数组升序排列
+
+	function compareNumbers(a, b) {
+  return a - b;
+}
