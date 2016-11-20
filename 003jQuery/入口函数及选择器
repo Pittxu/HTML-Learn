@@ -1,0 +1,77 @@
+入口函数:
+
+		$(document).ready(function(){
+		
+		});
+		
+		$(function(){
+				
+				})
+				
+Js的window.onload入口函数是等到所有内容,以及我们的外部图片之类的文件加载完之后,才回去执行
+
+JQuery的入口函数只在html所有标签都加载之后,就回去执行.
+				
+				
+				
+事件处理程序:
+	1.事件源:
+	Js:document.getElementById("id")
+	JQ:$("#id")
+	
+	2.事件:
+	Js:document.getElementById("id").onclick
+	JQ:$("#id").click
+	
+	3.事件处理程序:
+	Js:document.getElementById("id").onclick=function(){
+			//语句
+			}
+	JQ:$("#id").click(function(){
+			//语句
+			})
+			
+javascript创建对象的三种方法:
+1.var obj={
+		ready:function(){}
+};
+
+2.var obj1=new Object();
+obj1.ready=function(){
+}
+
+3.Object.create();
+
+推荐使用第一种方式;第二种方式存在效率问题;
+
+jQuery选择器
+	回顾:css选择器
+	符号	说明	用法
+	#id	id选择器	#id{color:red}
+	.class	类选择器	.class{}
+	Element	标签选择器	p{}
+	*	通配符选择器	配合其他选择器来使用
+	,	并集选择器	div,p{}
+	空格	后代选择器	div span{}//选择div下的span标签
+	>	子代选择器	div>span{}//div亲生的span
+	+	紧邻选择器	div+p//选择div紧挨着的下一个p元素
+	
+	
+	#Id选择器
+	设置被选择元素的样式属性:
+		$("#b03").css("background","red");
+	
+	获取被选择元素的样式属性:
+		$("#b03").css("color");
+	
+	jQuery的一个特点:隐式迭代
+	
+	jQuery基本选择器
+	$("#demo")	选择Id为demo的第一个元素	$("#demo").css("background","red");
+	$(".iTem")	选择所有类名为iTem的元素	$(".iTem").css()
+	$("div")	标签选择器	$()
+	$(".iTem,div")	并集选择器	
+	
+	
+	规律:$(selector).css("background","red");
+		这样的话只要通过一种方式就能操作所有的选择器了
