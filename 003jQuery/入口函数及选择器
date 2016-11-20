@@ -75,3 +75,20 @@ jQuery选择器
 	
 	规律:$(selector).css("background","red");
 		这样的话只要通过一种方式就能操作所有的选择器了
+		
+		获取样式:
+		$("li").css("font-size",function(index,value){
+		
+		//index:指定当前元素的索引号
+		//value:表示当前元素要设置的样式
+		})
+		
+		设置样式:
+		$("li").css("font-size",function(index,value){
+			if(index===3){
+			return (index+1)*10+"px";
+			}
+		})
+		
+		
+
