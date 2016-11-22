@@ -94,6 +94,39 @@ jQuery选择器
 	JavaScript库:把javaScript里面常用的功能代码封装成了一个文件,使用的时候直接引进来即可.
 		
 	常见的库:Prototype YUI Dojo Extjs
+	
+	
+	jQuery对象和DOM对象
+		DOM(Document Object Model,文档对象模型),每一份DOM都可以表示成一棵树
+		
+		可以通过javascript中getElementsByTagName或者getElementById来获取元素节点.像这样得到的DOM元素就是DOM对象,DOM对象可以使用JavaScript中的方法,示例"
+			var domObj=document.getElementById("id");//获取DOM对象
+			var ObjHTML=domObj.innerHTML;//使用JavaScript中的方法innerHTML
+			
+		jQuery对象就是通过jQuery包装DOM对象后产生的对象
+		jQuery对象时jQuery独有的,
+			$("#foo").html();//获取Id为foo元素内的html代码
+			等同于:document.getElementById("foo").innerHTML;
+			
+		在jQuery对象中无法使用DOM对象的任何方法.例如$("#id").innerHTML和$("#id").checked之类的写法都是错误的,可以使用$("#id").html()和$("#id").attr("checked")之类的jQuery方法来代替.同样的DOM对象也不能使用jQuery里的方法.
+		
+		jQuery对象和DOM对象的互相转换
+		1.jQuery转换成DOM对象
+			var $cr=$("#cr");		//jQuery对象
+			var cr=$cr[0];			//DOM对象
+			alert(cr.checked);		//检测这个checkbox是否被选中
+			
+			通过get(index)方法得到相应的DOM对象
+			var$cr=$("#cr");			//jQuery对象
+			var cr=$cr.get(0);			//DOM对象
+			alert(cr.checked)			//检测这个checkbox是否被选中
+			
+		2.DOM对象转换成jQUery对象
+		对于一个DOM对象,值需要用$()吧DOM对象包装起来,就可以获得一个jQuery对象了.方式为$(DOM对象).
+		var cr=document.getElementById("cr");
+		var $cr=$(cr);
+		
+		平时用到的jQuery对象都是通过$()函数制造出来的,$()函数就是jQuery对象的制造工厂.
 		
 	JavaScript与jQuery的区别
 	
