@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>懒加载插件案例</title>
 	<style>
 		div {
 			height: 2000px;
